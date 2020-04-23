@@ -44,7 +44,7 @@ const scanFile = (resultsDS: ScanResult[]) => (file: string): void => {
     resultsDS.push(...matches as ScanResult[])
 }
 
-function scanForKeys(repoDir: string): ScanResult[] {
+export default function scanForKeys(repoDir: string): ScanResult[] {
     const results = [] as ScanResult[]
     // this is hackery and I'm not sure if there is a race condition
     walk(repoDir, scanFile(results), scannerConfig.dirsIgnored)
@@ -54,5 +54,3 @@ function scanForKeys(repoDir: string): ScanResult[] {
 }
 
 scanForKeys('/home/hjf/git/credentials-scan-node')
-
-module.exports = scanForKeys

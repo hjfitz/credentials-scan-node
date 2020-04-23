@@ -30,8 +30,9 @@ function scanForKeys(repoDir) {
     // this is hackery and I'm not sure if there is a race condition
     util_1.walk(repoDir, scanFile(results), config_1.default.dirsIgnored);
     const out = results.flat().filter(Boolean);
-    // console.log(JSON.stringify(out, null, 2))
+    console.log(JSON.stringify(out, null, 2));
     return out;
 }
+exports.default = scanForKeys;
 scanForKeys('/home/hjf/git/credentials-scan-node');
-module.exports = scanForKeys;
+//# sourceMappingURL=index.js.map
